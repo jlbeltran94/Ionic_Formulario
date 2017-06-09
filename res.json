@@ -1,0 +1,35 @@
+[
+    {
+        "type": "text",
+        "label": "Tel\u00e9fono",
+        "name": "phone",
+        "required": false
+    },
+    {
+        "type": "radio",
+        "label": "G\u00e9nero",
+        "name": "gender",
+        "required": false,
+        "values": [
+            "Masculino",
+            "Femenino"
+        ]
+    },
+    {
+        "type": "select",
+        "label": "Edad",
+        "name": "age",
+        "required": false,
+        "values": [
+            "18-25",
+            "26-35",
+            ">35"
+        ]
+    },
+    {
+        "type": "text",
+        "label": "Email",
+        "name": "email",
+        "required": true
+    }
+]

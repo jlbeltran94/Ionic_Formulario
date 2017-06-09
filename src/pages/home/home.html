@@ -7,8 +7,63 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-col col-12 col-md-6 col-lg-4>
+    <form #form="ngForm">
+      <ion-row *ngFor="let h of body">
+
+        <ion-item *ngIf="h.type == 'text'">
+          <ion-label floating>{{h.label}}</ion-label>
+          <ion-input name="h.name" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="h.type == 'textarea'">
+          <ion-label floating>{{h.label}}</ion-label>
+          <ion-textarea name="h.name" required></ion-textarea>
+        </ion-item>
+
+        <ion-item *ngIf="h.type == 'time'">
+          <ion-label floating>{{h.label}}</ion-label>
+          <ion-input name="h.name" type="Time" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="h.type == 'date'">
+          <ion-label floating>{{h.label}}</ion-label>
+          <ion-input name="h.name" type="Date" required></ion-input>
+        </ion-item>
+
+        <ion-item *ngIf="h.type == 'select'">
+          <ion-label> {{h.label}} </ion-label>
+          <ion-select ion-input required>
+            <div *ngFor="let v of h.values">
+              <ion-option value="{{v}}"> {{v}} </ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+
+        <ion-list radio-group *ngIf="h.type == 'radio'">
+          <ion-list-header>
+            {{h.label}}
+          </ion-list-header>
+          <ion-item *ngFor="let v of h.values">
+            <ion-label>{{v}}</ion-label>
+            <ion-radio name="h.name" value="{{v}}"></ion-radio>
+          </ion-item>
+        </ion-list>
+
+        <ion-list *ngIf="h.type == 'checkbox'">
+          <ion-list-header>
+            {{h.label}}
+          </ion-list-header>
+          <ion-item *ngFor="let v of h.values">
+            <ion-label>{{v}}</ion-label>
+            <ion-checkbox name="h.name"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+
+      </ion-row>
+    </form>
+    <ion-row>
+      <button ion-button block full color="danger" (click)=refresh() [disabled]="!form.valid">Actualizar</button>
+    </ion-row>
+  </ion-col>
 </ion-content>
