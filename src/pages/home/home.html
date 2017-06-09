@@ -9,7 +9,7 @@
 <ion-content padding>
   <ion-col col-12 col-md-6 col-lg-4>
     <form #form="ngForm">
-      <ion-row *ngFor="let h of body">
+      <div *ngFor="let h of body">
 
         <ion-item *ngIf="h.type == 'text'">
           <ion-label floating>{{h.label}}</ion-label>
@@ -60,7 +60,7 @@
           </ion-item>
         </ion-list>
 
-      </ion-row>
+      </div>
     </form>
     <ion-row>
       <button ion-button block full color="danger" (click)=refresh() [disabled]="!form.valid">Actualizar</button>
