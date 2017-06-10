@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ToastController } from 'ionic-angular';
 
 import { Httpclient } from '../../providers/httpclient';
 
@@ -14,11 +14,12 @@ export class HomePage {
   values: String[];
 
   constructor(public navCtrl: NavController,
-    public service: Httpclient) {
+    public service: Httpclient,
+    public ToastCtrl: ToastController) {
     this.service.getForm().subscribe(
       response => {
         this.form = response._body;
-        this.body = JSON.parse(this.form);             
+        this.body = JSON.parse(this.form);
 
       }
     );
@@ -28,7 +29,12 @@ export class HomePage {
   }
 
   ionViewDidEnter() { }
-  refresh(){
+  refresh() {
+    this.ToastCtrl.create({
+      message: "Formulario actualizado",
+      duration: 1500,
+      position: 'bottom'
+    }).present();
     this.navCtrl.setRoot(HomePage);
   }
 

@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="duende">
     <ion-title>
-      Ionic Blank
+      Formulario Duende
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -46,7 +46,7 @@
           </ion-list-header>
           <ion-item *ngFor="let v of h.values">
             <ion-label>{{v}}</ion-label>
-            <ion-radio name="h.name" value="{{v}}"></ion-radio>
+            <ion-radio color="duende" name="h.name" value="{{v}}"></ion-radio>
           </ion-item>
         </ion-list>
 
@@ -56,14 +56,15 @@
           </ion-list-header>
           <ion-item *ngFor="let v of h.values">
             <ion-label>{{v}}</ion-label>
-            <ion-checkbox name="h.name"></ion-checkbox>
+            <ion-checkbox color="duende" name="h.name"></ion-checkbox>
           </ion-item>
         </ion-list>
 
       </div>
     </form>
-    <ion-row>
-      <button ion-button block full color="danger" (click)=refresh() [disabled]="!form.valid">Actualizar</button>
+    <br>
+    <ion-row padding-bottom>      
+      <button class="centerbtn" ion-button color="accent" round (click)=refresh() [disabled]="!form.valid">Actualizar</button>
     </ion-row>
   </ion-col>
 </ion-content>
