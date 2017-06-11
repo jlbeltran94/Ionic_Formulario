@@ -9,7 +9,7 @@ import { Httpclient } from '../../providers/httpclient';
 })
 export class HomePage {
 
-  form: any;
+  
   body: any;
   values: String[];
 
@@ -17,9 +17,8 @@ export class HomePage {
     public service: Httpclient,
     public ToastCtrl: ToastController) {
     this.service.getForm().subscribe(
-      response => {
-        this.form = response._body;
-        this.body = JSON.parse(this.form);
+      response => {        
+        this.body = response;
 
       }
     );

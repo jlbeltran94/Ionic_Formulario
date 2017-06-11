@@ -26,7 +26,7 @@ export class Httpclient {
     });
     let options = new RequestOptions(contentType);
     return this.http.get(URL, options).map(response => {
-      return response;
+      return response.json();
     }).catch(err => {
       return Observable.throw("error al consumir el servicio");
     });
